@@ -97,7 +97,7 @@ html {
     width: 100%;
     border: 0.2rem solid #2C2C59;
     background-color: white;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 }
 
 .first-section {
@@ -135,7 +135,7 @@ html {
     width: 117px;
     height: 36px;
     background-color: #2C2C59;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     border: 0.2em solid #2C2C59;
 }
 
@@ -148,6 +148,7 @@ html {
 .book {
     height: 100%;
     margin-right: 2rem;
+    box-shadow: 8px 8px 8px rgb(30 66 73 / 20%);
 }
 
 
@@ -233,10 +234,68 @@ html {
     width: 127px;
     height: 36px;
     background-color: #95CCD7;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     border: 0.2em solid #95CCD7;
     text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.footer {
+    height: 350px;
+    background-image: linear-gradient(100deg, #96CDD7 5.28%, #CDE6E8 38.18%, #C9E4E7 60.98%, #C4E1E5 88.83%);
+    position: relative;
+    bottom: 0px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer_left-side {
+    width: 40%;
+}
+
+.footer_h3 {
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #2C2C59;
+    padding-top: 11rem;
+    margin-bottom: 5rem;
+}
+
+
+.contact-icons_wrapper {
+    display: flex;
+    height: 31px;
+    justify-content: space-between;
+    width: 184px;
+}
+
+.contact-icons {
+    height: 100%;
+}
+
+
+.footer_right-side {
+    position: relative;
+    top: 66px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footer-book {
+    display: inline-block;
+    height: 200px;
+    margin-right: 1.6rem;
+    box-shadow: 8px 8px 8px rgb(30 66 73 / 20%);
+}
+
+.footer_first-book, .footer_third-book {
+    position: relative;
+    top: 50px;
 }

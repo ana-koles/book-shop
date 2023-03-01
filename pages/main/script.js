@@ -196,11 +196,83 @@ const secondSectionCardItem = bookDetails.map(book => {
 
 secondSectionCards.innerHTML = secondSectionCardItem;
 
-console.log(secondSectionCards);
 
+/* Footer */
 
+const footer = document.createElement('footer');
+    footer.classList.add('footer');
+    body.appendChild(footer);
 
+const footerContent = document.createElement('div');
+    footerContent.classList.add('footer-content');
+    footerContent.classList.add('container');
+    footer.appendChild(footerContent);
 
+const footerLeftSide = document.createElement('div');
+    footerLeftSide.classList.add('footer_left-side');
+    footerContent.appendChild(footerLeftSide);
+
+const footerHeader = document.createElement('h3');
+    footerHeader.classList.add('footer_h3');
+    footerHeader.innerText = 'Contact us to get\n more information';
+    footerLeftSide.appendChild(footerHeader);
+
+const contactIconsWrapper = document.createElement('div');
+    contactIconsWrapper.classList.add('contact-icons_wrapper');
+    footerLeftSide.appendChild(contactIconsWrapper);
+
+const fbIcon = document.createElement('img');
+    fbIcon.src = "../../assets/icons/facebook.png";
+    fbIcon.alt = "facebook";
+    fbIcon.classList.add('contact-icons');
+    fbIcon.classList.add('fb-icon');
+    contactIconsWrapper.appendChild(fbIcon);
+
+const instIcon = document.createElement('img');
+    instIcon.src = "../../assets/icons/instagram.png";
+    instIcon.alt = "instagram";
+    instIcon.classList.add('contact-icons');
+    instIcon.classList.add('inst-icon');
+    contactIconsWrapper.appendChild(instIcon);
+
+const telegramIcon = document.createElement('img');
+    telegramIcon.src = "../../assets/icons/telegram.png";
+    telegramIcon.alt = "telegram";
+    telegramIcon.classList.add('contact-icons');
+    telegramIcon.classList.add('telegram-icon');
+    contactIconsWrapper.appendChild(telegramIcon);
+
+const footerRightSide = document.createElement('div');
+    footerRightSide.classList.add('footer_right-side');
+    footerContent.appendChild(footerRightSide);
+
+const footerFirstBook = document.createElement('img');
+    footerFirstBook.classList.add('footer_first-book');
+    footerFirstBook.classList.add('footer-book');
+    footerFirstBook.src = "../../assets/images/15.jpg";
+    footerFirstBook.alt = "book";
+    footerRightSide.appendChild(footerFirstBook);
+
+const footerSecondBook = document.createElement('img');
+    footerSecondBook.classList.add('footer_second-book');
+    footerSecondBook.classList.add('footer-book');
+    footerSecondBook.src = "../../assets/images/14.jpg";
+    footerSecondBook.alt = "book";
+    footerRightSide.appendChild(footerSecondBook);
+
+const footerThirdBook = document.createElement('img');
+    footerThirdBook.classList.add('footer_third-book');
+    footerThirdBook.classList.add('footer-book');
+    footerThirdBook.src = "../../assets/images/13.jpg";
+    footerThirdBook.alt = "book";
+    footerRightSide.appendChild(footerThirdBook);
+
+const footerFourthBook = document.createElement('img');
+    footerFourthBook.classList.add('footer_fourth-book');
+    footerFourthBook.classList.add('footer-book');
+    footerFourthBook.src = "../../assets/images/12.jpg";
+    footerFourthBook.alt = "book";
+    footerRightSide.appendChild(footerFourthBook);
 
 
 
