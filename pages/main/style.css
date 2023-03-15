@@ -33,7 +33,7 @@ html {
 .logo-name {
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #2C2C59;
-    font-size: 40px;
+    font-size: 3rem;
 }
 
 /* .nav-menu {
@@ -156,10 +156,23 @@ html {
 /* Second section */
 
 .second-section {
-    height: 1300px;
+    min-height: 1405px;
     overflow: hidden;
     background-color: #F8F8F8;
 }
+
+.second-section_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+}
+
+.second-section_left-wrapper {
+    width: 75%;
+}
+
 
 .second-section_h3 {
     font-size: 3rem;
@@ -169,34 +182,39 @@ html {
     margin-bottom: 2rem;
 }
 
+
 .book-cards_wrapper {
     display: flex;
     flex-wrap: wrap;
-    align-items: space-between;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/* .book-cards_wrapper::after {
+    content: "";
+    flex: auto;
+  } */
+
 .book-card {
-    width: 208px;
-    height:540px;
-    margin-right: 3.9rem;
+    width: 170px;
+    height: 379px;
+/*     margin-right: 3.9rem; */
     margin-bottom: 7rem;
     background-color: white;
+    position: relative;
 
 }
 
 .book-img {
-    width: 208px;
-    height: 327px;
+    width: 130px;
+    height: 194px;
     margin-bottom: 0.5rem;
-}
-
-.book-card:nth-child(5n) {
-    margin-right: 0;
+    display: block;
+    pointer-events: none;
 }
 
 .book-card_header {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     color: #2C2C59;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 0.5rem;
@@ -204,23 +222,24 @@ html {
 }
 
 .book-card_text {
-    margin-bottom: 2rem;
-    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
     padding-left: 0.5rem;
+    color: rgb(160, 149, 149)
 }
 
 .book-card_price {
     color: red;
     font-weight: 400;
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
     padding-left: 0.5rem;
 }
 
 .learn-more_link {
     display: block;
     margin-bottom: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding-left: 0.5rem;
     color: black;
     text-decoration: underline;
@@ -230,17 +249,116 @@ html {
 
 .card-button {
     font-size: 1.2rem;
-    color: white;
+    color: #2C2C59;
     width: 127px;
     height: 36px;
     background-color: #95CCD7;
     border-radius: 0.5rem;
     border: 0.2em solid #95CCD7;
-    text-align: center;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    bottom: 13px;
+    left: 22px
 }
+
+/* Second sectin right side */
+
+.second-section_right-wrapper {
+    margin-top: 10.3rem;
+}
+
+.chart-wrapper {
+    width: 230px;
+    min-height: 950px;
+    border: 0.2rem solid #2C2C59;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.chart_h3 {
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #2C2C59;
+    padding-top: 2rem;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+
+}
+
+.book-wrapper_general {
+    margin: 0 auto;
+    width: 205px;
+}
+
+.cart-book-wrapper {
+    border: 0.2rem solid #e4f0f2;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 136px;
+    margin-bottom: 2rem;
+}
+
+.cart-img {
+    width: 70px;
+    height: 100px;
+    display: block;
+    margin: auto auto auto 0.5rem;
+}
+
+
+.cart-item_text {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+}
+
+.cart-item_btn {
+    width: 75px;
+    height: 25px;
+    display: block;
+}
+
+.item-text_wrapper {
+    min-height: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 1rem;
+    min-width: 57%;
+
+}
+
+.cart-item_text h4, .cart-item_text p {
+    margin-bottom: 1rem;
+}
+
+.cart-item_text h4 {
+    font-size: 1.4rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #2C2C59;
+}
+
+.char-btn {
+    font-size: 1.2rem;
+    color: white;
+    width: 117px;
+    height: 36px;
+    background-color: #2C2C59;
+    border-radius: 0.5rem;
+    border: 0.2em solid #2C2C59;
+    display: block;
+    margin: 0 auto;
+}
+
+.item-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #2C2C59;
+
+}
+
+/* Footer */
 
 .footer {
     height: 350px;
@@ -298,4 +416,9 @@ html {
 .footer_first-book, .footer_third-book {
     position: relative;
     top: 50px;
+}
+
+.book-cart {
+    width: 100px;
+    height: 100px;
 }

@@ -151,50 +151,206 @@ const sectionSecondContent = document.createElement('div');
     sectionSecondContent.classList.add('container');
     sectionSecond.appendChild(sectionSecondContent);
 
+const sectionSecondLeftContent = document.createElement('div');
+    sectionSecondLeftContent.classList.add('second-section_left-wrapper');
+    sectionSecondContent.appendChild(sectionSecondLeftContent);
+
 const secondSectionHeader = document.createElement('h3');
     secondSectionHeader.classList.add('second-section_h3');
     secondSectionHeader.innerText = 'New arrivals';
-    sectionSecondContent.appendChild(secondSectionHeader);
+    sectionSecondLeftContent.appendChild(secondSectionHeader);
 
 /* Book cards */
 
 const secondSectionCards = document.createElement('div');
     secondSectionCards.classList.add('book-cards_wrapper');
-    sectionSecondContent.appendChild(secondSectionCards);
+    sectionSecondLeftContent.appendChild(secondSectionCards);
 
 
-    function createBookCards (img, name, author, price) {
+    function createBookCards (id, img, name, author, price) {
         return `
-        <div class="book-card">
+        <div class="book-card" id=${id}>
             <img class="book-img" src=${img} alt="book">
             <h4 class="book-card_header">${name}</h4>
             <p class="book-card_text">${author}</p>
             <p class="book-card_price">${price}</p>
-            <a class="learn-more_link" href="#">Learn more</a>
-            <button type="button" class="card-button">Add to card</button>
+            <a class="learn-more_link" href="#">Show more</a>
+            <button type="button" class="card-button">Add to cart</button>
         </div>
         `
     };
 
     const bookDetails = [
-        {img: "../../assets/images/4.jpg", name: 'The Menore We Lost', author: 'Mike Roberts', price: '$10.12'},
-        {img: "../../assets/images/14.jpg", name: 'The Family Remains', author: 'Lisa Jewell', price: '$12.12'},
-        {img: "../../assets/images/6.jpg", name: 'Sunset Kiss', author: 'Anna Bright', price: '$8.10'},
-        {img: "../../assets/images/7.jpg", name: 'Dog Flowers', author: 'Danielle Gellar', price: '$10.05'},
-        {img: "../../assets/images/8.jpg", name: 'City of Orange', author: 'David Yoon', price: '$7.20'},
-        {img: "../../assets/images/9.jpeg", name: 'The Red of My Blood', author: 'Clover Stroud', price: '$14.10'},
-        {img: "../../assets/images/10.jpg", name: 'Wake Uo, Sir', author: 'Jonathan Ames', price: '$8.15'},
-        {img: "../../assets/images/11.jpg", name: 'Hang the Moon', author: 'Jeannette Walls', price: '$12.85'},
-        {img: "../../assets/images/12.jpg", name: 'Chamber of Secrets', author: 'J.K.Rowling', price: '$15.50'},
-        {img: "../../assets/images/13.jpg", name: 'Deatbly Hallows', author: 'J.K.Rowling', price: '$10.10'},
+        {id: 1, img: "../../assets/images/4.jpg", name: 'The Menore We Lost', author: 'Mike Roberts', price: '$10.12'},
+        {id: 2, img: "../../assets/images/14.jpg", name: 'The Family Remains', author: 'Lisa Jewell', price: '$12.12'},
+        {id: 3, img: "../../assets/images/6.jpg", name: 'Sunset Kiss', author: 'Anna Bright', price: '$8.10'},
+        {id: 4, img: "../../assets/images/7.jpg", name: 'Dog Flowers', author: 'Danielle Gellar', price: '$10.05'},
+        {id: 5, img: "../../assets/images/8.jpg", name: 'City of Orange', author: 'David Yoon', price: '$7.20'},
+        {id: 6, img: "../../assets/images/9.jpeg", name: 'The Red of My Blood', author: 'Clover Stroud', price: '$14.10'},
+        {id: 7, img: "../../assets/images/10.jpg", name: 'Wake Uo, Sir', author: 'Jonathan Ames', price: '$8.15'},
+        {id: 8, img: "../../assets/images/11.jpg", name: 'Hang the Moon', author: 'Jeannette Walls', price: '$12.85'},
+        {id: 9, img: "../../assets/images/12.jpg", name: 'Chamber of Secrets', author: 'J.K.Rowling', price: '$15.50'},
+        {id: 10, img: "../../assets/images/new_10.jpg", name: 'JavaScript: The Good Parts: The Good Parts', author: 'Douglas Crockford', price: '$30.00', description: "With JavaScript: The Good Parts, you'll discover a beautiful, elegant, lightweight and highly expressive language that lets you create effective code, whether you're managing object libraries or just trying to get Ajax to run fast. If you develop sites or applications for the Web, this book is an absolute must"},
+        {id: 11, img: "../../assets/images/new_11.jpg", name: 'Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript', author: 'David Herman', price: '$20.00', description: "Effective JavaScript is organized around 68 proven approaches for writing better JavaScript, backed by concrete examples. You’ll learn how to choose the right programming style for each project, manage unanticipated problems, and work more successfully with every facet of JavaScript programming from data structures to concurrency"},
+        {id: 12, img: "../../assets/images/new_12.jpg", name: 'JavaScript: The Definitive Guide', author: 'David Flanagan', price: '$40.50', "description": "This Fifth Edition is completely revised and expanded to cover JavaScript as it is used in today's Web 2.0 applications. This book is both an example-driven programmer's guide and a keep-on-your-desk reference, with new chapters that explain everything you need to know to get the most out of JavaScript"},
+        {id: 13, img: "../../assets/images/new_13.jpg", name: 'Programming JavaScript Applications', author: 'Eric Elliott', price: '$15.50', "description": "Take advantage of JavaScript’s power to build robust web-scale or enterprise applications that are easy to extend and maintain. By applying the design patterns outlined in this practical book, experienced JavaScript developers will learn how to write flexible and resilient code that’s easier—yes, easier—to work with as your code base grows"},
+        {id: 14, img: "../../assets/images/new_14.jpg", name: 'Learning JavaScript Design Patterns', author: 'Addy Osmani', price: '$20.50',"description": "With Learning JavaScript Design Patterns, you’ll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you"},
+        {id: 15, img: "../../assets/images/new_15.jpg", name: 'Programming TypeScript', author: 'Boris Cherny', price: '$25.50', "description": "Any programmer working with a dynamically typed language will tell you how hard it is to scale to more lines of code and more engineers. That’s why Facebook, Google, and Microsoft invented gradual static type layers for their dynamically typed JavaScript and Python code. This practical book shows you how one such type layer, TypeScript, is unique among them: it makes programming fun with its powerful static type system"},
     ]
+
+    let cartArray = [];
 
 
 const secondSectionCardItem = bookDetails.map(book => {
-    return createBookCards(book.img, book.name, book.author, book.price);
+    return createBookCards(book.id, book.img, book.name, book.author, book.price);
 }).join('');
 
 secondSectionCards.innerHTML = secondSectionCardItem;
+
+/* right side */
+
+const sectionSecondRightContent = document.createElement('div');
+    sectionSecondRightContent.classList.add('second-section_right-wrapper');
+    sectionSecondContent.appendChild(sectionSecondRightContent);
+
+const cartWrapper = document.createElement('div');
+    cartWrapper.classList.add('chart-wrapper');
+    sectionSecondRightContent.appendChild(cartWrapper);
+
+const cartHeader = document.createElement('h3');
+    cartHeader.classList.add('chart_h3');
+    cartHeader.innerText = 'Cart';
+    cartWrapper.appendChild(cartHeader);
+
+const generalBookWrapper = document.createElement('div');
+    generalBookWrapper.classList.add('book-wrapper_general');
+    cartWrapper.appendChild(generalBookWrapper);
+
+
+/* drag and drop */
+
+let bookCard = document.querySelectorAll(".book-card");
+
+bookCard.forEach(card => {
+    card.draggable = true;
+    card.addEventListener('dragstart', onDrag);
+});
+
+function onDrag (event) {
+    event.dataTransfer.setData('id', event.target.id);
+}
+
+let dropImageArea = document.querySelector('.chart-wrapper');
+dropImageArea.addEventListener('dragover', dropAllow);
+
+function dropAllow(event) {
+    event.preventDefault();
+};
+
+dropImageArea.addEventListener('drop', drop);
+
+function drop (event) {
+    let bookId = event.dataTransfer.getData('id');
+    let oBook = getBookObject(bookId);
+
+    if(oBook) {
+        addToCart(oBook);
+    }
+
+    drawBookCardInCart (oBook.id, oBook.name, oBook.author, oBook.price, oBook.img);
+}
+
+function getBookObject(id) {
+    for (let i = 0; i < bookDetails.length; i++) {
+        if (bookDetails[i].id == id) {
+            return bookDetails[i];
+        }
+    }
+}
+
+function addToCart (oBook) {
+    let bookFound = false;
+    let oCart = { id:  oBook.id, img: oBook.img, name: oBook.name, author: oBook.author, price: oBook.price, totalPrice: oBook.price, quantity: 1};
+    cartArray.forEach(cart => {
+        if (cart.id === oBook.id) {
+            bookFound = true;
+            cart.quantity = cart.quantity + 1;
+            cart.totalPrice = cart.totalPrice + oBook.price;
+        }
+    });
+
+    if (!bookFound) {
+        cartArray.push(oCart);
+    }
+
+    //drawBookCardInCart (oCart.name, oCart.author, oCart.price, oCart.img);
+
+}
+
+/* Adding book to a cart by clicking on a button*/
+
+let cardButton = document.querySelectorAll('.card-button');
+for (let i = 0; i < cardButton.length; i++) {
+    let button = cardButton[i];
+    button.addEventListener('click', addToCartByButton);
+}
+
+function addToCartByButton (event) {
+    let button = event.target;
+    let bookItem = button.parentElement;
+    let bookItemName = bookItem.querySelector('.book-card_header').innerText;
+    let bookItmeAuthor = bookItem.querySelector('.book-card_text').innerText;
+    let bookItmePrice = bookItem.querySelector('.book-card_price').innerText;
+    let bookItemImg = bookItem.querySelector('.book-img').src;
+    let bookId = bookItem.getAttribute('id');
+
+    let oBook = getBookObject(bookId);
+
+    if(oBook) {
+        addToCart(oBook);
+    }
+
+    drawBookCardInCart (bookId, bookItemName, bookItmeAuthor, bookItmePrice, bookItemImg );
+}
+
+function drawBookCardInCart (bookItemId, bookItemName, bookItmeAuthor, bookItmePrice,bookItemImg ) {
+    let arrayBookCartWrapper = dropImageArea.querySelectorAll('.cart-book-wrapper');
+       for (let i = 0; i < arrayBookCartWrapper.length; i++) {
+        if (arrayBookCartWrapper[i].getAttribute('id') ==  bookItemId) {
+            return;
+        }
+    }
+
+    let bookWrapper = document.createElement('div');
+        /* bookWrapper.innerText = bookItemName; */
+        bookWrapper.classList.add('cart-book-wrapper');
+        bookWrapper.setAttribute('id', bookItemId);
+        generalBookWrapper.appendChild(bookWrapper);
+
+
+    let bookCartContent = `
+        <img class="cart-img" src=${bookItemImg} alt="book image">
+        <div class="item-text_wrapper">
+            <div class ="cart-item_text">
+                <h4>${bookItemName}</h4>
+                <p>${bookItmeAuthor}</p>
+                <p class="item-price"> ${bookItmePrice} x 1</p>
+                </div>
+            <button class="cart-item_btn" type='submit'>Remove</button>
+        </div>
+        `
+    bookWrapper.innerHTML = bookCartContent;
+   }
+
+const chattBtnWrapper = document.createElement('div');
+   chattBtnWrapper.classList.add('chat-btn_wrapper')
+   cartWrapper.appendChild(chattBtnWrapper);
+
+const chattButton = document.createElement('button');
+   chattButton.classList.add('char-btn');
+   chattButton.type = "button";
+   chattButton.innerText = "Place order";
+   chattBtnWrapper.appendChild(chattButton);
 
 
 /* Footer */
@@ -228,12 +384,6 @@ const fbIcon = document.createElement('img');
     fbIcon.classList.add('fb-icon');
     contactIconsWrapper.appendChild(fbIcon);
 
-const instIcon = document.createElement('img');
-    instIcon.src = "../../assets/icons/instagram.png";
-    instIcon.alt = "instagram";
-    instIcon.classList.add('contact-icons');
-    instIcon.classList.add('inst-icon');
-    contactIconsWrapper.appendChild(instIcon);
 
 const telegramIcon = document.createElement('img');
     telegramIcon.src = "../../assets/icons/telegram.png";
@@ -241,6 +391,14 @@ const telegramIcon = document.createElement('img');
     telegramIcon.classList.add('contact-icons');
     telegramIcon.classList.add('telegram-icon');
     contactIconsWrapper.appendChild(telegramIcon);
+
+const instIcon = document.createElement('img');
+    instIcon.src = "../../assets/icons/instagram.png";
+    instIcon.alt = "instagram";
+    instIcon.classList.add('contact-icons');
+    instIcon.classList.add('inst-icon');
+    contactIconsWrapper.appendChild(instIcon);
+
 
 const footerRightSide = document.createElement('div');
     footerRightSide.classList.add('footer_right-side');
