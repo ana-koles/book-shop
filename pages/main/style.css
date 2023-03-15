@@ -334,10 +334,44 @@ html {
 }
 
 .cart-item_text h4 {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #2C2C59;
+    display: block;
+
+
+}
+
+.price-quantity p {
+    display: block;
+    margin-right: 1 rem;
+}
+.quantity-input {
+    height: 19px;
+    width: 27px;display: inline;
+}
+
+.price-quantity {
+    display: flex;
+    flex-direction: row;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.total-cost {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.total-cost p {
+    font-size: 2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #2C2C59;
 }
+
 
 .char-btn {
     font-size: 1.2rem;

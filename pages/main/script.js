@@ -287,7 +287,7 @@ function addToCart (oBook) {
 
 }
 
-/* Adding book to a cart by clicking on a button*/
+/* Add book to a cart by clicking on a button*/
 
 let cardButton = document.querySelectorAll('.card-button');
 for (let i = 0; i < cardButton.length; i++) {
@@ -300,7 +300,7 @@ function addToCartByButton (event) {
     let bookItem = button.parentElement;
     let bookItemName = bookItem.querySelector('.book-card_header').innerText;
     let bookItmeAuthor = bookItem.querySelector('.book-card_text').innerText;
-    let bookItmePrice = bookItem.querySelector('.book-card_price').innerText;
+    let bookItemPrice = bookItem.querySelector('.book-card_price').innerText;
     let bookItemImg = bookItem.querySelector('.book-img').src;
     let bookId = bookItem.getAttribute('id');
 
@@ -310,19 +310,32 @@ function addToCartByButton (event) {
         addToCart(oBook);
     }
 
-    drawBookCardInCart (bookId, bookItemName, bookItmeAuthor, bookItmePrice, bookItemImg );
+    drawBookCardInCart (bookId, bookItemName, bookItmeAuthor, bookItemPrice, bookItemImg );
 }
 
-function drawBookCardInCart (bookItemId, bookItemName, bookItmeAuthor, bookItmePrice,bookItemImg ) {
+/* Count total price when adding the book */
+
+function increaseTotalPrice (bookPrice) {
+    let price = parseFloat(bookPrice.replace('$', ''));
+    totalCostAmount.innerText = +totalCostAmount.innerText + price;
+
+}
+
+function drawBookCardInCart (bookItemId, bookItemName,
+    bookItmeAuthor, bookItemPrice,bookItemImg ) {
+
+        increaseTotalPrice (bookItemPrice);
+
     let arrayBookCartWrapper = dropImageArea.querySelectorAll('.cart-book-wrapper');
-       for (let i = 0; i < arrayBookCartWrapper.length; i++) {
+        for (let i = 0; i < arrayBookCartWrapper.length; i++) {
         if (arrayBookCartWrapper[i].getAttribute('id') ==  bookItemId) {
+            let quantityInput =  arrayBookCartWrapper[i].querySelector('.item-quantity');
+            quantityInput.innerText = +quantityInput.innerText + 1;
             return;
-        }
+        };
     }
 
     let bookWrapper = document.createElement('div');
-        /* bookWrapper.innerText = bookItemName; */
         bookWrapper.classList.add('cart-book-wrapper');
         bookWrapper.setAttribute('id', bookItemId);
         generalBookWrapper.appendChild(bookWrapper);
@@ -334,23 +347,62 @@ function drawBookCardInCart (bookItemId, bookItemName, bookItmeAuthor, bookItmeP
             <div class ="cart-item_text">
                 <h4>${bookItemName}</h4>
                 <p>${bookItmeAuthor}</p>
-                <p class="item-price"> ${bookItmePrice} x 1</p>
+                <div class="price-quantity">
+                    <p class="item-price"> ${bookItemPrice} / </p>
+                    <p class="item-quantity">1</p>
                 </div>
+            </div>
+
             <button class="cart-item_btn" type='submit'>Remove</button>
         </div>
         `
     bookWrapper.innerHTML = bookCartContent;
-   }
+
+    /* Remove books from the cart */
+    const removeBookButton = bookWrapper.querySelector('.cart-item_btn');
+    removeBookButton.addEventListener('click', (event) => {
+            console.log('click');
+            const bookWrapper = event.target.parentElement.parentElement;
+            decreaseTotalPrice(bookWrapper);
+            bookWrapper.remove();
+
+        });
+
+}
+
+    /* Count total price when remove  the book */
+function decreaseTotalPrice (bookWrapper) {
+    let bookPrice = bookWrapper.querySelector('.item-price');
+    let bookQuanity = bookWrapper.querySelector('.item-quantity');
+    let price = parseFloat(bookPrice.innerText.replace('$', ''));
+    let quantity = +bookQuanity.innerText;
+    let bookTotalPrice = price * quantity;
+    totalCostAmount.innerText = +totalCostAmount.innerText - bookTotalPrice;
+}
+
+const totalCostWrapper = document.createElement('div');
+    totalCostWrapper.classList.add('total-cost');
+    cartWrapper.appendChild(totalCostWrapper);
+
+const totalCostText = document.createElement('p');
+    totalCostText.classList.add('total-cost_text');
+    totalCostWrapper.appendChild(totalCostText);
+    totalCostText.innerHTML = 'Total price: $';
+
+const totalCostAmount = document.createElement('p');
+    totalCostAmount.classList.add('total-cost_amount');
+    totalCostWrapper.appendChild(totalCostAmount);
 
 const chattBtnWrapper = document.createElement('div');
-   chattBtnWrapper.classList.add('chat-btn_wrapper')
-   cartWrapper.appendChild(chattBtnWrapper);
+    chattBtnWrapper.classList.add('chat-btn_wrapper');
+    cartWrapper.appendChild(chattBtnWrapper);
 
 const chattButton = document.createElement('button');
    chattButton.classList.add('char-btn');
    chattButton.type = "button";
    chattButton.innerText = "Place order";
    chattBtnWrapper.appendChild(chattButton);
+
 
 
 /* Footer */
