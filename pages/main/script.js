@@ -181,15 +181,15 @@ const secondSectionCards = document.createElement('div');
     };
 
     const bookDetails = [
-        {id: 1, img: "../../assets/images/4.jpg", name: 'The Menore We Lost', author: 'Mike Roberts', price: '$10.12'},
-        {id: 2, img: "../../assets/images/14.jpg", name: 'The Family Remains', author: 'Lisa Jewell', price: '$12.12'},
-        {id: 3, img: "../../assets/images/6.jpg", name: 'Sunset Kiss', author: 'Anna Bright', price: '$8.10'},
-        {id: 4, img: "../../assets/images/7.jpg", name: 'Dog Flowers', author: 'Danielle Gellar', price: '$10.05'},
-        {id: 5, img: "../../assets/images/8.jpg", name: 'City of Orange', author: 'David Yoon', price: '$7.20'},
-        {id: 6, img: "../../assets/images/9.jpeg", name: 'The Red of My Blood', author: 'Clover Stroud', price: '$14.10'},
-        {id: 7, img: "../../assets/images/10.jpg", name: 'Wake Uo, Sir', author: 'Jonathan Ames', price: '$8.15'},
-        {id: 8, img: "../../assets/images/11.jpg", name: 'Hang the Moon', author: 'Jeannette Walls', price: '$12.85'},
-        {id: 9, img: "../../assets/images/12.jpg", name: 'Chamber of Secrets', author: 'J.K.Rowling', price: '$15.50'},
+        {id: 1, img: "../../assets/images/4.jpg", name: 'Secrets of the JavaScript Ninja', author: 'John Resig and Bear Bibeault', price: '$10.12', description: "Secrets of the Javascript Ninja takes you on a journey towards mastering modern JavaScript development in three phases: design, construction, and maintenance. Written for JavaScript developers with intermediate-level skills, this book will give you the knowledge you need to create a cross-browser JavaScript library from the ground up"},
+        {id: 2, img: "../../assets/images/14.jpg", name: 'The Family Remains', author: 'Lisa Jewell', price: '$12.12', description: "From the #1 New York Times bestselling author Lisa Jewell comes an intricate and affecting novel about twisted marriages, fractured families, and deadly obsessions in this stand-alone sequel to the “brilliantly chilling” (Ruth Ware, New York Times bestselling author) The Family Upstairs"},
+        {id: 3, img: "../../assets/images/6.jpg", name: 'Node.js in Action', author: 'Bradley Meck Alex Young and Mike Cantelon', price: '$38.10', "description": "Node.js in Action, Second Edition is a thoroughly revised book based on the best-selling first edition. It starts at square one and guides you through all the features, techniques, and concepts you'll need to build production-quality Node applications"},
+        {id: 4, img: "../../assets/images/7.jpg", name: 'Dog Flowers', author: 'Danielle Gellar', price: '$10.05', description: "A daughter returns home to the Navajo reservation to retrace her mother’s life in a memoir that is both a narrative and an archive of one family’s troubled history"},
+        {id: 5, img: "../../assets/images/8.jpg", name: 'City of Orange', author: 'David Yoon', price: '$7.20', description: "A man who can not remember his own name wakes up in an apocalyptic landscape, injured and alone. He has vague memories of life before, but he can't see it clearly and can't grasp how his current situation came to be. He must learn to survive by finding sources of water and foraging for food. Then he encounters a boy--and he realizes nothing is what he thought it was, neither the past nor the present"},
+        {id: 6, img: "../../assets/images/9.jpeg", name: 'The Red of My Blood', author: 'Clover Stroud', price: '$14.10', description: "A few weeks before Christmas, Clover's sister died of breast cancer, aged forty-six. Just days before, she had been given years to live. Her sudden death split Clover's life apart. The Red of My Blood charts Clover's fearless passage through the first year after her sister's death"},
+        {id: 7, img: "../../assets/images/10.jpg", name: 'Wake Up, Sir', author: 'Jonathan Ames', price: '$8.15', description: "Alan Blair, the hero of Wake Up, Sir!, is a young, loony writer with numerous problems of the mental, emotional, sexual, spiritual, and physical variety. He's very good at problems. But luckily for Alan, he has a personal valet named Jeeves, who does his best to sort things out for his troubled master. And Alan does find trouble wherever he goes. He embarks on a perilous and bizarre road journey, his destination being an artists colony in Saratoga Springs. There Alan encounters a gorgeous femme fatale who is in possession of the most spectacular nose in the history of noses. Such a nose can only lead to a wild disaster for someone like Alan, and Jeeves tries to help him, but...well, read the book and find out!"},
+        {id: 8, img: "../../assets/images/11.jpg", name: 'Hang the Moon', author: 'Jeannette Walls', price: '$12.85', description: "Sallie Kincaid is the daughter of the biggest man in a small town, the charismatic Duke Kincaid. Born at the turn of the 20th century into a life of comfort and privilege, Sallie remembers little about her mother who died in a violent argument with the Duke. By the time she is just eight years old, the Duke has remarried and had a son, Eddie. While Sallie is her father’s daughter, sharp-witted and resourceful, Eddie is his mother’s son, timid and cerebral. When Sallie tries to teach young Eddie to be more like their father, her daredevil coaching leads to an accident, and Sallie is cast out"},
+        {id: 9, img: "../../assets/images/12.jpg", name: 'Chamber of Secrets', author: 'J.K.Rowling', price: '$15.50', description: "Harry Potter's summer has included the worst birthday ever, doomy warnings from a house-elf called Dobby, and rescue from the Dursleys by his friend Ron Weasley in a magical flying car! Back at Hogwarts School of Witchcraft and Wizardry for his second year, Harry hears strange whispers echo through empty corridors - and then the attacks start. Students are found as through turned to stone . Dobby's sinister predictions seem to be coming true.These new editions of the classic and internationally bestselling, multi-award-winning series feature instantly pick-up-able new jackets by Jonny Duddle, with huge child appeal, to bring Harry Potter to the next generation of readers. It's time to PASS THE MAGIC ON "},
         {id: 10, img: "../../assets/images/new_10.jpg", name: 'JavaScript: The Good Parts: The Good Parts', author: 'Douglas Crockford', price: '$30.00', description: "With JavaScript: The Good Parts, you'll discover a beautiful, elegant, lightweight and highly expressive language that lets you create effective code, whether you're managing object libraries or just trying to get Ajax to run fast. If you develop sites or applications for the Web, this book is an absolute must"},
         {id: 11, img: "../../assets/images/new_11.jpg", name: "You Don't Know JS Yet: Get Started", author: 'Kyle Simpson', price: '$20.00', description: "It seems like there's never been as much widespread desire before for a better way to deeply learn the fundamentals of JavaScript. But with a million blogs, books, and videos out there, just where do you START? Look no further!"},
         {id: 12, img: "../../assets/images/new_12.jpg", name: 'JavaScript: The Definitive Guide', author: 'David Flanagan', price: '$40.50', "description": "This Fifth Edition is completely revised and expanded to cover JavaScript as it is used in today's Web 2.0 applications. This book is both an example-driven programmer's guide and a keep-on-your-desk reference, with new chapters that explain everything you need to know to get the most out of JavaScript"},
@@ -282,9 +282,6 @@ function addToCart (oBook) {
     if (!bookFound) {
         cartArray.push(oCart);
     }
-
-    //drawBookCardInCart (oCart.name, oCart.author, oCart.price, oCart.img);
-
 }
 
 /* Add book to a cart by clicking on a button*/
@@ -363,9 +360,7 @@ function drawBookCardInCart (bookItemId, bookItemName,
             const bookWrapper = event.target.parentElement.parentElement;
             decreaseTotalPrice(bookWrapper);
             bookWrapper.remove();
-
         });
-
 }
 
     /* Count total price when remove  the book */
