@@ -245,6 +245,8 @@ html {
     text-decoration: underline;
     font-weight: 200;
     font-style: italic;
+    cursor: pointer;
+
 }
 
 .card-button {
@@ -258,7 +260,8 @@ html {
     display: block;
     position: absolute;
     bottom: 13px;
-    left: 22px
+    left: 22px;
+    cursor: pointer;
 }
 
 /* Second sectin right side */
@@ -455,4 +458,59 @@ input[type=number]::-webkit-outer-spin-button {
 .book-cart {
     width: 100px;
     height: 100px;
+}
+
+/* Learn more pop-up */
+
+.pop-up_background {
+    position: fixed;
+    opacity: 0;
+    background: rgba(15, 39, 69, 0.8);
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.pop-up_background.active {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.pop-up_content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border: 1px solid #2C2C59;
+    border-radius: 1rem;
+    z-index: 10;
+    background-color: white;
+    width: 300px;
+    max-width: 60%;
+}
+
+.pop-up_content.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+.pop-up_header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+}
+
+.pop-up_description {
+    padding: 1rem;
+}
+
+.close-btn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+
 }

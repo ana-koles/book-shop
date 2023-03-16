@@ -361,7 +361,6 @@ function drawBookCardInCart (bookItemId, bookItemName,
     /* Remove books from the cart */
     const removeBookButton = bookWrapper.querySelector('.cart-item_btn');
     removeBookButton.addEventListener('click', (event) => {
-            console.log('click');
             const bookWrapper = event.target.parentElement.parentElement;
             decreaseTotalPrice(bookWrapper);
             bookWrapper.remove();
@@ -403,6 +402,72 @@ const chattButton = document.createElement('button');
    chattButton.innerText = "Place order";
    chattBtnWrapper.appendChild(chattButton);
 
+
+/* Learn more pop-up */
+
+
+const popupContent = document.createElement('div');
+    popupContent.classList.add('pop-up_content');
+    //popupContent.classList.add('active');
+    body.appendChild(popupContent);
+
+const popupHeaderWrapper = document.createElement('div');
+    popupHeaderWrapper.classList.add('pop-up_header-wrapper');
+    popupContent.appendChild(popupHeaderWrapper);
+
+const popupName = document.createElement('h3');
+    popupName.classList.add('pop-up_name');
+    popupHeaderWrapper.appendChild(popupName);
+    popupName.innerText = 'Header';
+
+const closeBtn = document.createElement('button');
+    closeBtn.classList.add('close-btn');
+    popupHeaderWrapper.appendChild(closeBtn);
+    closeBtn.innerHTML = '&times;';
+
+const popupDesciption = document.createElement('p');
+    popupDesciption.classList.add('pop-up_description');
+    popupContent.appendChild(popupDesciption);
+    popupDesciption.innerText="hello!!!!";
+
+const popupBackground = document.createElement('div');
+    popupBackground.classList.add('pop-up_background');
+    //popupBackground.classList.add('active');
+    body.appendChild(popupBackground);
+
+
+
+const learMorePopups = document.querySelectorAll('.learn-more_link');
+
+learMorePopups.forEach(popup => {
+        popup.addEventListener('click', openPopup);
+    });
+
+function openPopup (event) {
+    let link = event.target;
+    let linkParent = link.parentElement;
+    let linkId = linkParent.getAttribute('id');
+
+    let oLink = getBookObject(linkId);
+    console.log(oLink);
+    popupDesciption.innerText= oLink.description;
+    popupName.innerText = oLink.name;
+
+    popupContent.classList.add('active');
+    popupBackground.classList.add('active');
+}
+
+const closePopupBtns = document.querySelectorAll('.close-btn');
+closePopupBtns.forEach(button => {
+    button.addEventListener('click', closePopup);
+} )
+
+function closePopup (event) {
+    popupContent.classList.remove('active');
+    popupBackground.classList.remove('active');
+}
+
+popupBackground.addEventListener('click', closePopup);
 
 
 /* Footer */
@@ -483,7 +548,6 @@ const footerFourthBook = document.createElement('img');
     footerFourthBook.src = "../../assets/images/12.jpg";
     footerFourthBook.alt = "book";
     footerRightSide.appendChild(footerFourthBook);
-
 
 
 
