@@ -152,11 +152,10 @@ html {
 }
 
 
-
 /* Second section */
 
 .second-section {
-    min-height: 1405px;
+    min-height: 1390px;
     overflow: hidden;
     background-color: #F8F8F8;
 }
@@ -190,15 +189,9 @@ html {
     align-items: center;
 }
 
-/* .book-cards_wrapper::after {
-    content: "";
-    flex: auto;
-  } */
-
 .book-card {
     width: 170px;
-    height: 379px;
-/*     margin-right: 3.9rem; */
+    height: 365px;
     margin-bottom: 7rem;
     background-color: white;
     position: relative;
@@ -208,7 +201,7 @@ html {
 .book-img {
     width: 130px;
     height: 194px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     display: block;
     pointer-events: none;
 }
@@ -232,7 +225,7 @@ html {
     color: red;
     font-weight: 400;
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     padding-left: 0.5rem;
 }
 
@@ -250,7 +243,7 @@ html {
 }
 
 .card-button {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #2C2C59;
     width: 127px;
     height: 36px;
@@ -262,6 +255,7 @@ html {
     bottom: 13px;
     left: 22px;
     cursor: pointer;
+    font-weight: 600;
 }
 
 /* Second sectin right side */
@@ -270,15 +264,17 @@ html {
     margin-top: 10.3rem;
 }
 
-.chart-wrapper {
-    width: 230px;
-    min-height: 950px;
+.cart-wrapper {
+    display: inline-block;
+    width: 255px;
+    height: auto;
+    max-height: 1235px;
     border: 0.2rem solid #2C2C59;
     background-color: white;
     border-radius: 0.5rem;
 }
 
-.chart_h3 {
+.cart_h3 {
     font-size: 3rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #2C2C59;
@@ -291,6 +287,8 @@ html {
 .book-wrapper_general {
     margin: 0 auto;
     width: 205px;
+    max-height: 1050px;
+    overflow:scroll;
 }
 
 .cart-book-wrapper {
@@ -329,26 +327,28 @@ html {
     margin-bottom: auto;
     margin-left: 1rem;
     min-width: 57%;
-
 }
 
 .cart-item_text h4, .cart-item_text p {
     margin-bottom: 1rem;
 }
 
+.cart-item_author {
+    color: rgb(160, 149, 149);
+}
+
 .cart-item_text h4 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #2C2C59;
     display: block;
-
-
 }
 
 .price-quantity p {
     display: block;
     margin-right: 1 rem;
 }
+
 .quantity-input {
     height: 19px;
     width: 27px;display: inline;
@@ -365,19 +365,21 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .total-cost {
+    margin-top: 1.5rem;
     margin-left: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: row;
 }
 
-.total-cost p {
+.total-cost_text, .total-cost_amount {
     font-size: 2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #2C2C59;
 }
 
-
-.char-btn {
-    font-size: 1.2rem;
+.cart-btn {
+    font-size: 1.5rem;
     color: white;
     width: 117px;
     height: 36px;
@@ -388,11 +390,14 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0 auto;
 }
 
-.item-price {
+.chat-btn_wrapper {
+    margin-bottom: 2rem;
+}
+
+.item-price, .item-quantity {
     font-size: 1.6rem;
     font-weight: 700;
     color: #2C2C59;
-
 }
 
 /* Footer */
@@ -487,7 +492,7 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 1rem;
     z-index: 10;
     background-color: white;
-    width: 300px;
+    width: 490px;
     max-width: 60%;
 }
 
@@ -500,11 +505,20 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1rem;
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 1rem;
+
 }
 
 .pop-up_description {
-    padding: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
 }
 
 .close-btn {
@@ -512,5 +526,11 @@ input[type=number]::-webkit-outer-spin-button {
     border: none;
     outline: none;
     background: none;
+    font-size: 3rem;
+}
 
+.pop-up_name {
+    font-size: 1.8rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #2C2C59;
 }

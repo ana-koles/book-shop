@@ -191,7 +191,7 @@ const secondSectionCards = document.createElement('div');
         {id: 8, img: "../../assets/images/11.jpg", name: 'Hang the Moon', author: 'Jeannette Walls', price: '$12.85'},
         {id: 9, img: "../../assets/images/12.jpg", name: 'Chamber of Secrets', author: 'J.K.Rowling', price: '$15.50'},
         {id: 10, img: "../../assets/images/new_10.jpg", name: 'JavaScript: The Good Parts: The Good Parts', author: 'Douglas Crockford', price: '$30.00', description: "With JavaScript: The Good Parts, you'll discover a beautiful, elegant, lightweight and highly expressive language that lets you create effective code, whether you're managing object libraries or just trying to get Ajax to run fast. If you develop sites or applications for the Web, this book is an absolute must"},
-        {id: 11, img: "../../assets/images/new_11.jpg", name: 'Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript', author: 'David Herman', price: '$20.00', description: "Effective JavaScript is organized around 68 proven approaches for writing better JavaScript, backed by concrete examples. You’ll learn how to choose the right programming style for each project, manage unanticipated problems, and work more successfully with every facet of JavaScript programming from data structures to concurrency"},
+        {id: 11, img: "../../assets/images/new_11.jpg", name: "You Don't Know JS Yet: Get Started", author: 'Kyle Simpson', price: '$20.00', description: "It seems like there's never been as much widespread desire before for a better way to deeply learn the fundamentals of JavaScript. But with a million blogs, books, and videos out there, just where do you START? Look no further!"},
         {id: 12, img: "../../assets/images/new_12.jpg", name: 'JavaScript: The Definitive Guide', author: 'David Flanagan', price: '$40.50', "description": "This Fifth Edition is completely revised and expanded to cover JavaScript as it is used in today's Web 2.0 applications. This book is both an example-driven programmer's guide and a keep-on-your-desk reference, with new chapters that explain everything you need to know to get the most out of JavaScript"},
         {id: 13, img: "../../assets/images/new_13.jpg", name: 'Programming JavaScript Applications', author: 'Eric Elliott', price: '$15.50', "description": "Take advantage of JavaScript’s power to build robust web-scale or enterprise applications that are easy to extend and maintain. By applying the design patterns outlined in this practical book, experienced JavaScript developers will learn how to write flexible and resilient code that’s easier—yes, easier—to work with as your code base grows"},
         {id: 14, img: "../../assets/images/new_14.jpg", name: 'Learning JavaScript Design Patterns', author: 'Addy Osmani', price: '$20.50',"description": "With Learning JavaScript Design Patterns, you’ll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you"},
@@ -214,11 +214,11 @@ const sectionSecondRightContent = document.createElement('div');
     sectionSecondContent.appendChild(sectionSecondRightContent);
 
 const cartWrapper = document.createElement('div');
-    cartWrapper.classList.add('chart-wrapper');
+    cartWrapper.classList.add('cart-wrapper');
     sectionSecondRightContent.appendChild(cartWrapper);
 
 const cartHeader = document.createElement('h3');
-    cartHeader.classList.add('chart_h3');
+    cartHeader.classList.add('cart_h3');
     cartHeader.innerText = 'Cart';
     cartWrapper.appendChild(cartHeader);
 
@@ -240,7 +240,7 @@ function onDrag (event) {
     event.dataTransfer.setData('id', event.target.id);
 }
 
-let dropImageArea = document.querySelector('.chart-wrapper');
+let dropImageArea = document.querySelector('.cart-wrapper');
 dropImageArea.addEventListener('dragover', dropAllow);
 
 function dropAllow(event) {
@@ -318,7 +318,6 @@ function addToCartByButton (event) {
 function increaseTotalPrice (bookPrice) {
     let price = parseFloat(bookPrice.replace('$', ''));
     totalCostAmount.innerText = +totalCostAmount.innerText + price;
-
 }
 
 function drawBookCardInCart (bookItemId, bookItemName,
@@ -346,10 +345,10 @@ function drawBookCardInCart (bookItemId, bookItemName,
         <div class="item-text_wrapper">
             <div class ="cart-item_text">
                 <h4>${bookItemName}</h4>
-                <p>${bookItmeAuthor}</p>
+                <p cart-item_author>${bookItmeAuthor}</p>
                 <div class="price-quantity">
-                    <p class="item-price"> ${bookItemPrice} / </p>
-                    <p class="item-quantity">1</p>
+                    <p class="item-price"> ${bookItemPrice} x&nbsp</p>
+                    <p class="item-quantity"> 1</p>
                 </div>
             </div>
 
@@ -397,7 +396,7 @@ const chattBtnWrapper = document.createElement('div');
     cartWrapper.appendChild(chattBtnWrapper);
 
 const chattButton = document.createElement('button');
-   chattButton.classList.add('char-btn');
+   chattButton.classList.add('cart-btn');
    chattButton.type = "button";
    chattButton.innerText = "Place order";
    chattBtnWrapper.appendChild(chattButton);
