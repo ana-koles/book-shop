@@ -91,15 +91,31 @@ deliveryDate.addEventListener('blur', (e) => {
         deliveryDate.classList.remove('invalid');
         errorMessageDeliveryDate.innerHTML ="";
     }
-})
+});
+
+/* Street validation */
+
+const streetName = document.getElementById('street');
+const errorMessageStreetName = document.querySelector('.error-message_street');
+
+streetName.addEventListener('blur', (e) => {
+    if (streetName.value.trim().length === 0 || streetName.value.trim() == null) {
+        streetName.classList.remove('valid');
+        streetName.classList.add('invalid');
+        errorMessageStreetName.innerHTML = 'Please enter your Street name';
+    } else if (streetName.value.trim().length < streetName.minLength) {
+        streetName.classList.remove('valid');
+        streetName.classList.add('invalid');
+        errorMessageStreetName.innerHTML = "Street name is too short, it has to be at least 5 characters ";
+    } else {
+        streetName.classList.remove('invalid');
+        streetName.classList.add('valid');
+        errorMessageStreetName.innerHTML = "";
+    }
+});
 
 
 
 
 
 
-/* let today = new Date();
-let tomorrow = new Date()
-tomorrow.setDate(today.getDate()+1);
-tomorrow = tomorrow.parse('year');
- */
