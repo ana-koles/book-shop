@@ -1,5 +1,3 @@
-"use strict"
-
 const nameInput = document.getElementById('name');
 const errorMessage = document.querySelector('.error-message');
 const errorMessageName = document.querySelector('.error-message_name');
@@ -8,17 +6,9 @@ const form = document.getElementById('form');
 const surnameInput = document.getElementById('surname');
 let invalidInputFields = 8;
 
-
-
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 });
-
-/* let error = checkValidation(form);
-
-function checkValidation(form) {
-
-} */
 
 /* Name input validation */
 nameInput.addEventListener('blur', (event) => {
@@ -114,8 +104,53 @@ streetName.addEventListener('blur', (e) => {
     }
 });
 
+/* House number validation */
 
+const houseNumberInput = document.getElementById("houseNumber");
+const errorMessageHouseNumber = document.querySelector("error-message_house");
 
+houseNumberInput.addEventListener('blur', (e) => {
+    if (houseNumberInput.value.trim().length === 0 || houseNumberInput.value.trim() == null) {
+        houseNumberInput.classList.remove("valid");
+        houseNumberInput.classList.add('invalid');
+        errorMessageHouseNumber.innerText = "Please enter house nuber";
+    } else if (houseNumberInput.value.trim().length < houseNumberInput.min) {
+        houseNumberInput.classList.remove('valid');
+        houseNumberInput.classList.add('invalid');
+        errorMessageHouseNumber.innerText = "Please enter positive number";
+    } else {
+        houseNumberInput.classList.remove('invalid');
+        houseNumberInput.classList.add('valid');
+        errorMessageHouseNumber.innerText = '';
+    }
+});
+
+/* House number validation */
+
+const flatNumberInput = document.getElementById('flatNumber');
+const errorMessageHouseFlat = document.querySelector('.error-message_flat');
+const pattern = flatNumberInput.getAttribute('pattern');
+
+flatNumberInput.addEventListener('blur', (e) => {
+    let inputValue = e.target.value;
+    let re = new RegExp(pattern);
+    if (re.test(inputValue)) {
+        flatNumberInput.classList.add("valid");
+        flatNumberInput.classList.remove('invalid');
+        errorMessageHouseFlat.innerText = "";
+        console.log('true');
+    } else if (flatNumberInput.value.trim().length === 0 || flatNumberInput.value.trim() == null) {
+        flatNumberInput.classList.remove("valid");
+        flatNumberInput.classList.add('invalid');
+        errorMessageHouseFlat.innerText = "Please enter flat number";
+        console.log('false');
+    }  else {
+        flatNumberInput.classList.remove("valid");
+        flatNumberInput.classList.add('invalid');
+        errorMessageHouseFlat.innerText = "Please enter valid flat number";
+        console.log('false');
+    }
+});
 
 
 

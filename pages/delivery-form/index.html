@@ -75,11 +75,13 @@
                             </li>
                             <li>
                                 <label class="houseHumber" for="houseNumber">House number<span arial-label="required">*:</span></label>
-                                <input type="number" id="houseNumber" min="0" required >
+                                <input type="number" id="houseNumber" min="0" required class="valid" >
+                                <span class="error-message error-message_house"></span>
                             </li>
                             <li>
                                 <label class="flatNumber" for="flatNumber">Flat number<span arial-label="required">*:</span></label>
-                                <input type="text" id="flatNumber" min="0" required  >
+                                <input type="tel" id="flatNumber" pattern="^[1-9]{1}[-|0-9]+"  minlength="1" class="valid" required title="Only positive numbers and '-'(dash)" >
+                                <span class="error-message error-message_flat"></span>
                             </li>
                         </ul>
                     </fieldset>
@@ -114,10 +116,7 @@
                     </fieldset>
                     <button class="submit-btn" type="submit">Submit</button>
 
-
-
-
-                    </form>
+                   </form>
                 </div>
          </div>
     </section>
