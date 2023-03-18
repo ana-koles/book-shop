@@ -60,29 +60,41 @@ surnameInput.addEventListener('blur', (event) => {
 let currentDay = new Date();
 let nextDay = new Date();
 
-/* set tomorrow day */
+/* set tomorrow's day */
 nextDay.setDate(currentDay.getDate() + 1);
 
+let nextDayYear = nextDay.getFullYear();
 
-function showErrorMessage(event) {
-    if (nameInput.value.length === 0 || nameInput.value == null) {
-      // If the field is empty,
-      // display the following error message.
-      nameInput.classList.add('invalid');
-      nameError.innerText = "Please enter your name";
-    } else if (nameInput.value.length < nameInput.minlength) {
-      // If the field doesn't contain an email address,
-      // display the following error message.
-      nameError.textContent = "Please enter the correct name";
-      nameInput.classList.add('invalid');
-    } else if (nameError.validity.tooShort) {
-      // If the data is too short,
-      // display the following error message.
-      nameError.textContent = "Name is too short. Name  should be at least 4 characters";
-      nameInput.classList.add('invalid');
-    }
-
+let nextDayMonth = nextDay.getMonth() + 1;
+if (nextDayMonth < 10) {
+    nextDayMonth = "0" + nextDayMonth;
 }
+
+let nextDayDate = nextDay.getDate();
+if (nextDayDate < 10) {
+    nextDayDate = "0" + nextDayDate;
+}
+
+nextDay = nextDayYear + '-' + nextDayMonth + '-' + nextDayDate;
+const deliveryDate = document.getElementById('delivery-date');
+deliveryDate.setAttribute('min', nextDay);
+
+const errorMessageDeliveryDate = document.querySelector('.error-message_delivery-date');
+
+deliveryDate.addEventListener('blur', (e) => {
+    if (deliveryDate.value == null || deliveryDate.value === '') {
+        deliveryDate.classList.remove('valid');
+        deliveryDate.classList.add('invalid');
+        errorMessageDeliveryDate.innerHTML ="Please enter delivery date";
+    } else {
+        deliveryDate.classList.add('valid');
+        deliveryDate.classList.remove('invalid');
+        errorMessageDeliveryDate.innerHTML ="";
+    }
+})
+
+
+
 
 
 
