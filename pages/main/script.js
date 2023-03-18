@@ -26,14 +26,6 @@ const headerImgWrapper = document.createElement('div');
     headerImgWrapper.classList.add("header-image_wrapper");
     headerContainer.appendChild(headerImgWrapper);
 
-const basketImg = document.createElement('img');
-    basketImg.classList.add('basket-img');
-    basketImg.classList.add('header-img');
-    basketImg.src = "../../assets/icons/cart.png";
-    basketImg.alt = "basket";
-    headerImgWrapper.appendChild(basketImg);
-
-
 const likeImg = document.createElement('img');
     likeImg.classList.add('like-img');
     likeImg.classList.add('header-img');
@@ -47,6 +39,13 @@ const accountImg = document.createElement('img');
     accountImg.src = "../../assets/icons/contact.png";
     accountImg.alt = "contact";
     headerImgWrapper.appendChild(accountImg);
+
+    const basketImg = document.createElement('img');
+    basketImg.classList.add('basket-img');
+    basketImg.classList.add('header-img');
+    basketImg.src = "../../assets/icons/cart.png";
+    basketImg.alt = "basket";
+/*     headerImgWrapper.appendChild(basketImg); */
 
 
 /* Navigation */
