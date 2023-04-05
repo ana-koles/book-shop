@@ -36,7 +36,7 @@
             <div class="left-side_content">
 
                 <h3 class="delivery-form_h3">Delivery form</h3>
-                <p class="delivery-form_text">Required fields are followed by
+                <p class="delivery-form_text">Please fill the form. Required fields are followed by
                     <strong><span arial-label="required">*</span></strong>
                 </p>
 
@@ -74,52 +74,74 @@
                                 <span class="error-message error-message_street"></span>
                             </li>
                             <li>
-                                <label class="houseHumber" for="houseNumber">House number<span arial-label="required">*:</span></label>
+                                <label class="houseNumber" for="houseNumber">House number<span arial-label="required">*:</span></label>
                                 <input type="number" id="houseNumber" min="0" required class="valid" >
                                 <span class="error-message error-message_house"></span>
                             </li>
                             <li>
                                 <label class="flatNumber" for="flatNumber">Flat number<span arial-label="required">*:</span></label>
-                                <input type="tel" id="flatNumber" pattern="^[1-9]{1}[-|0-9]+"  minlength="1" class="valid" required title="Only positive numbers and '-'(dash)" >
+                                <input type="tel" id="flatNumber" pattern="^[1-9]{1}[-|0-9]*"  minlength="1" class="valid" required title="Only positive numbers and '-'(dash)" >
                                 <span class="error-message error-message_flat"></span>
                             </li>
                         </ul>
                     </fieldset>
 
                     <fieldset>
-                        <legend>Payment information</legend>
-                        <ul>
-                            <li>
-                                <input type="radio" checked required name="payment" id="card" value="card"><label for="card">Card</label>
-                        </li>
-                            <li>
-                                <input type="radio" required name="payment" id="cash" value="cash"><label for="cash">Cash</label>
-                            </li>
-                        </ul>
+                        <legend>Payment method<span arial-label="required"></span>*:</legend>
+                        <div class="radio_group">
+                            <input type="radio" class="radio" required name="payment" id="card" value="Card">
+                            <label class="radio" for="card">Card</label>
+                        </div>
+
+                        <div class="radio_group">
+                            <input type="radio"class="radio"  required name="payment" id="cash" value="Cash">
+                            <label class="radio" for="cash">Cash</label>
+                        </div>
+
                     </fieldset>
                     <fieldset>
-                        <legend>Choose 2 gifts</legend>
-                        <ul>
+                        <legend>Select up to 2 gifts:</legend>
+                        <ul class="checkbox_container">
                             <li>
-                                <input type="checkbox" name="gift" id="pack" value="pack"><label for="pack">Pack as a gift</label>
+                                <input type="checkbox" name="gift" id="pack" value="Pack as a gift" class="valid">
+                                <label for="pack" >Pack as a gift </label>
+
                             </li>
                             <li>
-                                <input type="checkbox" name="gift" id="add" value="add"><label for="add">Add postcard</label>
+                                <input type="checkbox" name="gift" id="add" value="Add postcard" class="valid">
+                                <label for="add">Add postcard</label>
                             </li>
                             <li>
-                                <input type="checkbox" name="gift" id="discount" value="discount"><label for="discount">Provide 2% discount to the next time</label>
+                                <input type="checkbox" name="gift" id="discount" value="Provide 2% discount to the next time" class="valid">
+                                <label for="discount">Provide 2% discount to the next time</label>
                             </li>
                             <li>
-                                <input type="checkbox" name="gift" id="pen" value="pen"><label for="pen">Branded pen or pencil</label>
+                                <input type="checkbox" name="gift" id="pen" value="Branded pen or pencil" class="valid">
+                                <label for="pen">Branded pen or pencil</label>
                             </li>
                         </ul>
+                        <span class="error-message error-message_check"></span>
                     </fieldset>
-                    <button class="submit-btn" type="submit">Submit</button>
-
-                   </form>
-                </div>
-         </div>
+                    <button class="submit-btn_invalid submit-btn" type="submit" >Submit</button>
+                </form>
+            </div>
+        </div>
     </section>
+
+    <!-- Delivery form summarized information -->
+    <div class="compelete-order_content">
+        <div class="compelete-order_header-wrapper">
+            <h1 class="complete-order_header">Your order is complete!</h1>
+        </div>
+        <div class="compelete-order_order-detailes">
+        </div>
+        <div class="delivery-order_link_wrapper">
+        <a href="../main/index.html" class="delivery-order_link" type="submit" >Submit</a>
+        </div>
+    </div>
+
+    <div class="compelete-order_background">
+    </div>
 
 
     <script src="script.js"></script>

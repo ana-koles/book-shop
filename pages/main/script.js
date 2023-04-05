@@ -45,33 +45,6 @@ const accountImg = document.createElement('img');
     basketImg.classList.add('header-img');
     basketImg.src = "../../assets/icons/cart.png";
     basketImg.alt = "basket";
-/*     headerImgWrapper.appendChild(basketImg); */
-
-
-/* Navigation */
-
-/* const navMenu = document.createElement('nav');
-    navMenu.classList.add('nav-menu');
-    headerContainer.appendChild(navMenu);
-
-
-let navMenuItemNames = ['Home', 'Shop','Categories', 'Bestsellers'];
-let navMenuList = document.createElement('ul');
-    navMenuList.classList.add('.nav-menu_list');
-let navMenuItem = document.createElement('li');
-    navMenuItem.classList.add('.nav-menu_item');
-
-
-function createNavMenuList (navMenuItemNames) {
-    for (let i = 0; i < navMenuItemNames.length; i++) {
-        navMenuItem.appendChild(document.createTextNode(navMenuItemNames[i]));
-        navMenuItem.style.marginRight = "20px";
-        navMenuList.appendChild(navMenuItem);
-    }
-    return navMenuList;
-}
-
-navMenu.appendChild(createNavMenuList (navMenuItemNames));  */
 
 const contactButtonWrapper = document.createElement('div');
     contactButtonWrapper.classList.add('contact-button_wrapper');
@@ -300,6 +273,8 @@ function addToCartByButton (event) {
     let bookItemImg = bookItem.querySelector('.book-img').src;
     let bookId = bookItem.getAttribute('id');
 
+    console.log(bookItemImg);
+
     let oBook = getBookObject(bookId);
 
     if(oBook) {
@@ -386,22 +361,20 @@ const totalCostAmount = document.createElement('p');
     totalCostWrapper.appendChild(totalCostAmount);
 
 const chattBtnWrapper = document.createElement('div');
-    chattBtnWrapper.classList.add('chat-btn_wrapper');
+    chattBtnWrapper.classList.add('cart-link_wrapper');
     cartWrapper.appendChild(chattBtnWrapper);
 
-const chattButton = document.createElement('button');
-   chattButton.classList.add('cart-btn');
-   chattButton.type = "button";
+const chattButton = document.createElement('a');
+   chattButton.classList.add('cart-link');
    chattButton.innerText = "Place order";
+   chattButton.href = "../delivery-form/index.html";
    chattBtnWrapper.appendChild(chattButton);
 
 
 /* Learn more pop-up */
 
-
 const popupContent = document.createElement('div');
     popupContent.classList.add('pop-up_content');
-    //popupContent.classList.add('active');
     body.appendChild(popupContent);
 
 const popupHeaderWrapper = document.createElement('div');
@@ -421,16 +394,14 @@ const closeBtn = document.createElement('button');
 const popupDesciption = document.createElement('p');
     popupDesciption.classList.add('pop-up_description');
     popupContent.appendChild(popupDesciption);
-    popupDesciption.innerText="hello!!!!";
 
 const popupBackground = document.createElement('div');
     popupBackground.classList.add('pop-up_background');
-    //popupBackground.classList.add('active');
     body.appendChild(popupBackground);
 
-
-
 const learMorePopups = document.querySelectorAll('.learn-more_link');
+
+console.log(learMorePopups);
 
 learMorePopups.forEach(popup => {
         popup.addEventListener('click', openPopup);
@@ -442,7 +413,6 @@ function openPopup (event) {
     let linkId = linkParent.getAttribute('id');
 
     let oLink = getBookObject(linkId);
-    console.log(oLink);
     popupDesciption.innerText= oLink.description;
     popupName.innerText = oLink.name;
 
@@ -453,7 +423,7 @@ function openPopup (event) {
 const closePopupBtns = document.querySelectorAll('.close-btn');
 closePopupBtns.forEach(button => {
     button.addEventListener('click', closePopup);
-} )
+});
 
 function closePopup (event) {
     popupContent.classList.remove('active');

@@ -22,12 +22,13 @@ html {
 .header-container {
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: space-between;
     align-items: center;
 }
 
 .logo-wrapper {
     width: 33.3333%;
+
 }
 
 .logo-name {
@@ -359,20 +360,28 @@ input[type=number]::-webkit-outer-spin-button {
     color: #2C2C59;
 }
 
-.cart-btn {
+.cart-link {
     font-size: 1.5rem;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+}
+
+.cart-link_wrapper {
+    margin-bottom: 2rem;
     width: 117px;
     height: 36px;
     background-color: #2C2C59;
     border-radius: 0.5rem;
     border: 0.2em solid #2C2C59;
-    display: block;
-    margin: 0 auto;
-}
-
-.chat-btn_wrapper {
     margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
 }
 
 .item-price, .item-quantity {
