@@ -136,7 +136,7 @@ houseNumberInput.addEventListener('blur', (e) => {
         houseNumberInput.classList.add('invalid');
         inputValidationArray[4] = false;
         errorMessageHouseNumber.innerText = "Please enter house nuber";
-    } else if (houseNumberInput.value.trim().length < houseNumberInput.min) {
+    } else if (houseNumberInput.value.trim() < houseNumberInput.min) {
         houseNumberInput.classList.remove('valid');
         houseNumberInput.classList.add('invalid');
         inputValidationArray[4] = false;
@@ -144,7 +144,7 @@ houseNumberInput.addEventListener('blur', (e) => {
     } else {
         houseNumberInput.classList.remove('invalid');
         houseNumberInput.classList.add('valid');
-        errorMessageStreetName.innerHTML = "";
+        errorMessageHouseNumber.innerHTML = "";
 
         inputValidationArray[4] = true;
         submitFormValidation (inputValidationArray);
@@ -154,30 +154,55 @@ houseNumberInput.addEventListener('blur', (e) => {
 /* Flat number validation */
 
 const flatNumberInput = document.getElementById('flatNumber');
-const errorMessageHouseFlat = document.querySelector('.error-message_flat');
+const errorMessageFlat = document.querySelector('.error-message_flat');
 const pattern = flatNumberInput.getAttribute('pattern');
 
 flatNumberInput.addEventListener('blur', (e) => {
     let inputValue = e.target.value;
     let re = new RegExp(pattern);
-    if (re.test(inputValue)) {
+    let isValidValue = false;
+    isValidValue = re.test(inputValue);
+    if(isValidValue === false) {
+        flatNumberInput.classList.remove("valid");
+        flatNumberInput.classList.add('invalid');
+        inputValidationArray[5] = false;
+        errorMessageFlat.innerText = "Please enter valid flat number";
+    }
+
+
+/*     if (re.test(inputValue)) {
         flatNumberInput.classList.add("valid");
         flatNumberInput.classList.remove('invalid');
-        errorMessageHouseFlat.innerText = '';
+        errorMessageFlat.innerText = '';
         inputValidationArray[5] = true;
         submitFormValidation (inputValidationArray);
 
-    } else if (flatNumberInput.value.trim().length === 0 || flatNumberInput.value.trim() == null) {
+
+        var isValid = true;
+try {
+    new RegExp("the_regex_to_test_goes_here");
+} catch(e) {
+    isValid = false;
+}
+
+if(!isValid) alert("Invalid regular expression");
+ */
+
+
+
+    if (flatNumberInput.value.trim().length === 0 || flatNumberInput.value.trim() == null) {
         flatNumberInput.classList.remove("valid");
         flatNumberInput.classList.add('invalid');
         inputValidationArray[5] = false;
-        errorMessageHouseFlat.innerText = "Please enter flat number";
+        errorMessageFlat.innerText = "Please enter flat number";
     }  else {
-        flatNumberInput.classList.remove("valid");
-        flatNumberInput.classList.add('invalid');
-        inputValidationArray[5] = false;
-        errorMessageHouseFlat.innerText = "Please enter valid flat number";
+        flatNumberInput.classList.remove("invalid");
+        flatNumberInput.classList.add('valid');
+        inputValidationArray[5] = true;
+        errorMessageFlat.innerText = "";
+        submitFormValidation (inputValidationArray);
     }
+
 });
 
 /* Payment method validation */
@@ -270,6 +295,7 @@ function createCompleteOrderMessage (event) {
         clientGiftsArray.forEach(gift => {
             text += ' ' + gift.value + ",";
         }) ;
+    }
 
     let  orderDetailsContent =
     `
@@ -289,6 +315,6 @@ function createCompleteOrderMessage (event) {
 
     completeOrderBackground.classList.add('active');
     completeOrderContent.classList.add('active');
-    }
+
 }
 
