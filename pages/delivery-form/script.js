@@ -169,27 +169,6 @@ flatNumberInput.addEventListener('blur', (e) => {
         errorMessageFlat.innerText = "Please enter valid flat number";
     }
 
-
-/*     if (re.test(inputValue)) {
-        flatNumberInput.classList.add("valid");
-        flatNumberInput.classList.remove('invalid');
-        errorMessageFlat.innerText = '';
-        inputValidationArray[5] = true;
-        submitFormValidation (inputValidationArray);
-
-
-        var isValid = true;
-try {
-    new RegExp("the_regex_to_test_goes_here");
-} catch(e) {
-    isValid = false;
-}
-
-if(!isValid) alert("Invalid regular expression");
- */
-
-
-
     if (flatNumberInput.value.trim().length === 0 || flatNumberInput.value.trim() == null) {
         flatNumberInput.classList.remove("valid");
         flatNumberInput.classList.add('invalid');
