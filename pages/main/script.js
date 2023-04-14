@@ -288,7 +288,7 @@ function addToCartByButton (event) {
 
 function increaseTotalPrice (bookPrice) {
     let price = parseFloat(bookPrice.replace('$', ''));
-    totalCostAmount.innerText = +totalCostAmount.innerText + price;
+    totalCostAmount.innerText = (+totalCostAmount.innerText + price).toFixed(2);
 }
 
 function drawBookCardInCart (bookItemId, bookItemName,

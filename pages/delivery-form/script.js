@@ -15,6 +15,30 @@ form.addEventListener('submit', (e) => {
 });
 
 /* Name input validation */
+
+/* Prevent entering spaces and numbers */
+
+nameInput.addEventListener('keypress', function ( event ) {
+    let key = event.keyCode;
+     if (key === 32) {
+       event.preventDefault();
+     }
+ });
+
+ nameInput.addEventListener('keydown', function (event) {
+    let key = event.keyCode;
+    if (key > 47 && key < 58 || key > 95 && key < 107) {
+        event.preventDefault();
+    }
+});
+
+nameInput.addEventListener('keyup', function (event) {
+    let key = event.keyCode;
+    if (key > 47 && key < 58 || key > 95 && key < 107) {
+        event.preventDefault();
+    }
+});
+
 nameInput.addEventListener('blur', (event) => {
     if (nameInput.value.trim().length === 0 || nameInput.value.trim() == null) {
         nameInput.classList.add('invalid');
@@ -36,6 +60,31 @@ nameInput.addEventListener('blur', (event) => {
 });
 
 /* Surname input validation */
+
+/* Prevent entering spaces and numbers */
+
+surnameInput.addEventListener('keypress', function (event) {
+    let key = event.keyCode;
+     if (key === 32) {
+       event.preventDefault();
+     }
+
+ });
+
+surnameInput.addEventListener('keydown', function (event) {
+    let key = event.keyCode;
+    if (key > 47 && key < 58 || key > 95 && key < 107) {
+        event.preventDefault();
+    }
+});
+
+surnameInput.addEventListener('keyup', function (event) {
+    let key = event.keyCode;
+    if (key > 47 && key < 58 || key > 95 && key < 107) {
+        event.preventDefault();
+    }
+});
+
 
 surnameInput.addEventListener('blur', (event) => {
         if (surnameInput.value.trim().length === 0 || surnameInput.value.trim() == null) {
@@ -89,11 +138,15 @@ deliveryDate.addEventListener('blur', (e) => {
         deliveryDate.classList.add('invalid');
         inputValidationArray[2] = false;
         errorMessageDeliveryDate.innerHTML ="Please enter delivery date";
+    } else if (deliveryDate.value < nextDay) {
+        deliveryDate.classList.remove('valid');
+        deliveryDate.classList.add('invalid');
+        inputValidationArray[2] = false;
+        errorMessageDeliveryDate.innerHTML ="Please enter valid delivery date";
     } else {
         deliveryDate.classList.add('valid');
         deliveryDate.classList.remove('invalid');
         errorMessageDeliveryDate.innerHTML ="";
-
         inputValidationArray[2] = true;
         submitFormValidation (inputValidationArray);
     }
@@ -119,7 +172,6 @@ streetName.addEventListener('blur', (e) => {
         streetName.classList.remove('invalid');
         streetName.classList.add('valid');
         errorMessageStreetName.innerHTML = "";
-
         inputValidationArray[3] = true;
         submitFormValidation (inputValidationArray);
     }
@@ -130,12 +182,26 @@ streetName.addEventListener('blur', (e) => {
 const houseNumberInput = document.getElementById("houseNumber");
 const errorMessageHouseNumber = document.querySelector(".error-message_house");
 
+houseNumberInput.addEventListener('keydown', function (event) {
+    let key = event.key;
+    if (key === 189) {
+        event.preventDefault();
+    }
+});
+
+houseNumberInput.addEventListener('keydup', function (event) {
+    let key = event.key;
+    if (key === 189) {
+        event.preventDefault();
+    }
+});
+
 houseNumberInput.addEventListener('blur', (e) => {
     if (houseNumberInput.value.trim().length === 0 || houseNumberInput.value.trim() == null) {
         houseNumberInput.classList.remove("valid");
         houseNumberInput.classList.add('invalid');
         inputValidationArray[4] = false;
-        errorMessageHouseNumber.innerText = "Please enter house nuber";
+        errorMessageHouseNumber.innerText = "Please enter house number";
     } else if (houseNumberInput.value.trim() < houseNumberInput.min) {
         houseNumberInput.classList.remove('valid');
         houseNumberInput.classList.add('invalid');
@@ -145,7 +211,6 @@ houseNumberInput.addEventListener('blur', (e) => {
         houseNumberInput.classList.remove('invalid');
         houseNumberInput.classList.add('valid');
         errorMessageHouseNumber.innerHTML = "";
-
         inputValidationArray[4] = true;
         submitFormValidation (inputValidationArray);
     }
@@ -166,10 +231,8 @@ flatNumberInput.addEventListener('blur', (e) => {
         flatNumberInput.classList.remove("valid");
         flatNumberInput.classList.add('invalid');
         inputValidationArray[5] = false;
-        errorMessageFlat.innerText = "Please enter valid flat number";
-    }
-
-    if (flatNumberInput.value.trim().length === 0 || flatNumberInput.value.trim() == null) {
+        errorMessageFlat.innerText = "Please enter valid flat number (only number and dash)";
+    } else if (flatNumberInput.value.trim().length === 0 || flatNumberInput.value.trim() == null) {
         flatNumberInput.classList.remove("valid");
         flatNumberInput.classList.add('invalid');
         inputValidationArray[5] = false;
@@ -294,6 +357,13 @@ function createCompleteOrderMessage (event) {
 
     completeOrderBackground.classList.add('active');
     completeOrderContent.classList.add('active');
+
+    const closeButton = document.querySelector('.close-btn');
+    closeButton.addEventListener('click', (event) => {
+        completeOrderBackground.classList.remove('active');
+        completeOrderContent.classList.remove('active');
+        orderDetailsWrapper.innerHTML = '';
+    });
 
 }
 

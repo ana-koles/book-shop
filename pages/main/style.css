@@ -284,9 +284,7 @@ html {
 }
 
 .cart-img {
-    width: 70px;
-    height: 100px;
-    display: block;
+    max-width: 40%;
     margin: auto auto auto 0.5rem;
 }
 
@@ -307,12 +305,12 @@ html {
     min-height: 100px;
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: 1rem;
-    min-width: 57%;
+    margin-left: 0.5rem;
+    min-width: 53%;
 }
 
 .cart-item_text h4, .cart-item_text p {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .cart-item_author {
@@ -385,7 +383,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .item-price, .item-quantity {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: #2C2C59;
 }

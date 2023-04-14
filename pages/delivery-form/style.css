@@ -348,4 +348,13 @@ input:focus {
     justify-content: center;
 }
 
+.close-btn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 3rem;
+    position: relative;
+    left: 142px
+}
 
